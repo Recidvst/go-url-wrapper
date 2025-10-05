@@ -1,11 +1,9 @@
-# Teams Bot Launcher
+# Go URL launcher
 
-A simple Go application to launch Microsoft Teams bots by using the 'share' link.
+A simple Go application to launch a URL using the user's default browser.
 
 It's basically just a wrapper around the share link to allow launching from a distributable binary. It opens the
 provided link in the user's default browser and shuts down.
-
-It would open any url, there's nothing special about the Teams bot share link, but this is the intended use case.
 
 ## Requirements
 
@@ -45,4 +43,5 @@ If you want, you can run the commands manually but make sure to include the corr
    ```
 
 Once built, double-click the generated file or run it from a terminal with `./<BOTNAME>-launcher.exe`
+
 
