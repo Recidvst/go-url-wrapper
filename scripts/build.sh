@@ -1,5 +1,5 @@
 #!/bin/sh
-# ===== Teams Bot Launcher Build Script =====
+# ===== Go URL Wrapper build script =====
 
 # Move to project root
 cd "$(dirname "$0")/.." || exit 1
@@ -11,16 +11,16 @@ if [ -f .env ]; then
   set +a
 fi
 
-if [ -z "$SHARE_LINK" ]; then
-  echo "SHARE_LINK is not set! Check your .env file in the project root."
+if [ -z "$URL" ]; then
+  echo "URL is not set! Check your .env file in the project root."
   exit 1
 fi
 
-# Output file name will be <BOT_NAME>-Launcher or <BOT_NAME>-Launcher-<BOT_VERSION>
-if [ -n "$BOT_VERSION" ]; then
-  OUTPUT="${BOT_NAME}-${BOT_VERSION}-Launcher"
+# Output file name will be <BINARY_NAME>-Launcher or <BINARY_NAME>-Launcher-<BINARY_VERSION>
+if [ -n "$BINARY_VERSION" ]; then
+  OUTPUT="${BINARY_NAME}-${BINARY_VERSION}-Launcher"
 else
-  OUTPUT="${BOT_NAME}-Launcher"
+  OUTPUT="${BINARY_NAME}-Launcher"
 fi
 
 # Add .exe extension for Windows
@@ -32,7 +32,7 @@ echo "Building $OUTPUT for $GOOS/$GOARCH..."
 echo "..."
 if go build -o "$OUTPUT" \
   -ldflags "-s -w \
-    -X teams-bot-launcher/config.ShareLink=${SHARE_LINK}"; then
+    -X go-url-wrapper/config.URL=${URL}"; then
   echo "Build succeeded!"
 else
   echo "Build failed!"
