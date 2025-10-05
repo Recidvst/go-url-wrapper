@@ -39,9 +39,10 @@ If you want, you can run the commands manually but make sure to include the corr
 
    ```sh
    # For Windows
-   GOOS=windows GOARCH=amd64 go build -o <BOTNAME>-launcher.exe -ldflags "-s -w -X teams-bot-launcher/config.ShareLink=<SHARE_LINK>" // for 64-bit, use GOARCH=386 for 32-bit
+   GOOS=windows GOARCH=amd64 go build -o <BINARY_NAME>-<BINARY_VERSION>-launcher.exe -ldflags "-s -w -X go-url-wrapper/config.URL=<URL>" // for 64-bit, use GOARCH=386 for 32-bit
    ```
 
-Once built, double-click the generated file or run it from a terminal with `./<BOTNAME>-launcher.exe`
+Once built, double-click the generated file or run it from a terminal with `./<BINARY_NAME>-<BINARY_VERSION>-launcher.exe`
+
 
 
