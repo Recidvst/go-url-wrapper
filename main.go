@@ -5,7 +5,7 @@ import (
 	"log"
 	"os/exec"
 	"runtime"
-	"teams-bot-launcher/config"
+	"go-url-wrapper/config"
 )
 
 func openURL(url string) error {
