@@ -14,7 +14,7 @@ type Config struct {
 }
 
 var (
-	ShareLink string
+	URL string
 )
 
 // GetEnvironmentVariables - read .env file and ldflag values, and return environment variables as a struct
@@ -24,13 +24,13 @@ func GetEnvironmentVariables() Config {
 	var cfg = Config{}
 
 	// prefer ldflag values over .env file values (used when distributed as a binary)
-	cfg.Url = os.Getenv("SHARE_LINK")
-	if ShareLink != "" {
-		cfg.Url = ShareLink
+	cfg.Url = os.Getenv("URL")
+	if URL != "" {
+		cfg.Url = URL
 	}
 
 	if cfg.Url == "" { // name and url are required
-		log.Fatal("One or more environment variables are not set. Please set SHARE_LINK")
+		log.Fatal("One or more environment variables are not set. Please set URL")
 	}
 
 	return cfg
