@@ -1,4 +1,4 @@
-module teams-bot-launcher
+module go-url-wrapper
 
 go 1.24
 
